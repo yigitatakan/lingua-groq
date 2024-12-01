@@ -9,7 +9,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://api.groq.com; img-src 'self' data: blob:; font-src 'self' data:; worker-src 'self' blob:; manifest-src 'self'; media-src 'self' blob:; object-src 'none';"
+          "value": "default-src 'self' https://vercel.live; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live; style-src 'self' 'unsafe-inline' https://vercel.live *.vercel.app; style-src-elem 'self' 'unsafe-inline' https://vercel.live *.vercel.app; connect-src 'self' https://api.groq.com https://vercel.live https://*.vercel.app https://*.vercel.sh https://vitals.vercel-insights.com; img-src 'self' data: blob: https://vercel.live https://*.vercel.app; font-src 'self' data:; worker-src 'self' blob:; manifest-src 'self'; media-src 'self' blob:; object-src 'none'; frame-src 'self' https://vercel.live"
         },
         {
           "key": "Access-Control-Allow-Origin",
@@ -26,17 +26,13 @@
         {
           "key": "X-XSS-Protection",
           "value": "1; mode=block"
-        },
-        {
-          "key": "Permissions-Policy",
-          "value": "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), interest-cohort=()"
         }
       ]
     }
   ],
   "build": {
     "env": {
-      "ENABLE_VERCEL_FEEDBACK": "false",
+      "ENABLE_VERCEL_FEEDBACK": "true",
       "ENABLE_FILE_SYSTEM_API": "1"
     }
   }

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://api.groq.com; img-src 'self' data: blob:; font-src 'self' data:; worker-src 'self' blob:; manifest-src 'self'; media-src 'self' blob:; object-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://vercel.live; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live; style-src 'self' 'unsafe-inline' https://vercel.live *.vercel.app; style-src-elem 'self' 'unsafe-inline' https://vercel.live *.vercel.app; connect-src 'self' https://api.groq.com https://vercel.live https://*.vercel.app https://*.vercel.sh https://vitals.vercel-insights.com; img-src 'self' data: blob: https://vercel.live https://*.vercel.app; font-src 'self' data:; worker-src 'self' blob:; manifest-src 'self'; media-src 'self' blob:; object-src 'none'; frame-src 'self' https://vercel.live">
     <title>LinguaGroq - AI Powered Translation</title>
   </head>
   <body>

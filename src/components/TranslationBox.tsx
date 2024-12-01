@@ -3,26 +3,35 @@ import { Loader2 } from 'lucide-react';
 interface TranslationBoxProps {
   value: string;
   onChange: (value: string) => void;
-  placeholder: string;
+  placeholder?: string;
   isLoading?: boolean;
   readOnly?: boolean;
 }
 
-export const TranslationBox = ({ value, onChange, placeholder, isLoading, readOnly }: TranslationBoxProps) => {
+export function TranslationBox({ 
+  value, 
+  onChange, 
+  placeholder = '', 
+  isLoading = false,
+  readOnly = false 
+}: TranslationBoxProps) {
   return (
-    <div className="relative w-full">
+    <div className="relative">
       <textarea
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        readOnly={readOnly}
-        className="w-full h-40 p-4 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+        readOnly={readOnly || isLoading}
+        className={`w-full min-h-[120px] md:min-h-[150px] p-3 border rounded-lg resize-none bg-white
+          ${readOnly ? 'bg-gray-50' : 'hover:border-blue-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500'}
+          ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}
+          transition-all outline-none`}
       />
       {isLoading && (
-        <div className="absolute top-2 right-2">
-          <Loader2 className="animate-spin text-blue-500" />
+        <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-50 rounded-lg">
+          <div className="w-6 h-6 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
         </div>
       )}
     </div>
   );
-};
+}
