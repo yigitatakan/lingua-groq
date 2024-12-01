@@ -1,5 +1,3 @@
-import { Loader2 } from 'lucide-react';
-
 interface TranslationBoxProps {
   value: string;
   onChange: (value: string) => void;
