@@ -9,7 +9,7 @@
       "headers": [
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self' https://*.vercel.live https://*.vercel.app https://*.vercel.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.vercel.live https://*.vercel.app https://*.vercel.com; style-src 'self' 'unsafe-inline' https://*.vercel.live https://*.vercel.app https://*.vercel.com; connect-src 'self' https://api.groq.com https://*.vercel.live https://*.vercel.app https://*.vercel.com wss://*.vercel.app wss://*.vercel.live; img-src 'self' data: blob: https:; font-src 'self' data: https:; frame-src 'self' https://*.vercel.live https://*.vercel.app https://*.vercel.com; worker-src 'self' blob:; manifest-src 'self'; media-src 'self' blob:; object-src 'none';"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://api.groq.com; img-src 'self' data: blob:; font-src 'self' data:; worker-src 'self' blob:; manifest-src 'self'; media-src 'self' blob:; object-src 'none';"
         },
         {
           "key": "Access-Control-Allow-Origin",
@@ -21,7 +21,7 @@
         },
         {
           "key": "X-Frame-Options",
-          "value": "SAMEORIGIN"
+          "value": "DENY"
         },
         {
           "key": "X-XSS-Protection",
@@ -33,5 +33,11 @@
         }
       ]
     }
-  ]
+  ],
+  "build": {
+    "env": {
+      "ENABLE_VERCEL_FEEDBACK": "false",
+      "ENABLE_FILE_SYSTEM_API": "1"
+    }
+  }
 }
